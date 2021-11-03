@@ -531,6 +531,8 @@ static void ft_shm_init (void)
           exit(1);
         }
         else{
+          unsetenv("FAKETIME_SHARED");
+          fprintf(stderr, "libfaketime: sem_name was %s, failed to open, creating new\n", sem_name);
           ft_shm_init();
           return;
         }
